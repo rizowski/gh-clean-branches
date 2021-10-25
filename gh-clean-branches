@@ -5,6 +5,7 @@
 # run inside a git repo folder
 
 DRY_RUN=false
+VERBOSE=true
 
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
@@ -73,6 +74,7 @@ local_branches_str=${local_branches_str/\ ?refs\/heads?/}      # remove the "ref
 
 if [[ ${VERBOSE} == true ]]; then
   printf "%s\n%s\n" "${blue}Local branches:${end}" "${local_branches_str}"
+  printf "%s\n%s\n" "${blue}Remote branches:${end}" "${remote_branches_str}"
 fi
 
 setopt extended_glob
